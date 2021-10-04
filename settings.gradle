@@ -5,7 +5,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "guard"
+rootProject.name = "android-process-guard"
 include ':app'
-//include ':guard'
 include ':guard'
