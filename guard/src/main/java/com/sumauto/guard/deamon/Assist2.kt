@@ -14,6 +14,6 @@ class Assist2:Service() {
 
     override fun onCreate() {
         super.onCreate()
-        XLog.d("Assist2 onCreate")
+        XLog.logComponentAlive(javaClass)
     }
 }

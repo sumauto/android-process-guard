@@ -10,7 +10,11 @@ import android.util.Log
  * History:		2021/08/15 
  */
 internal object XLog {
-    const val TAG = "ProcessKeeper"
+    private const val TAG = "SumautoGuard"
+
+    fun logComponentAlive(cm:Class<*>){
+        d("Alive==>"+cm.simpleName)
+    }
 
     @JvmStatic
     fun d(msg: String) {

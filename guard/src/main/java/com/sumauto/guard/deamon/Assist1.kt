@@ -7,13 +7,14 @@ import android.os.IBinder
 import com.sumauto.guard.utils.XLog
 
 class Assist1:Service() {
-    override fun onBind(intent: Intent?): IBinder? {
+    override fun onBind(intent: Intent?): IBinder {
         XLog.d("Assist1 onBind")
         return Binder()
     }
 
     override fun onCreate() {
         super.onCreate()
-        XLog.d("Assist1 onCreate")
+        XLog.logComponentAlive(javaClass)
+
     }
 }

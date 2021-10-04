@@ -38,9 +38,7 @@ object AppProcessRunner {
             niceName
         )
 
-        commands.forEach {
-            XLog.d(it)
-        }
+
         executor.execute {
             execute(File(File.separator), commands.toTypedArray())
         }

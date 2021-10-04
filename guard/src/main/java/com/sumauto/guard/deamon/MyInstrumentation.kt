@@ -8,7 +8,7 @@ import com.sumauto.guard.utils.XLog
 class MyInstrumentation:Instrumentation() {
     override fun onCreate(arguments: Bundle?) {
         super.onCreate(arguments)
-        XLog.d("MyInstrumentation.onCreate $arguments")
+        XLog.logComponentAlive(javaClass)
         targetContext.startService(Intent(targetContext, Assist1::class.java))
     }
 }

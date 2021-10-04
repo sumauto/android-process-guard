@@ -3,13 +3,19 @@
     package="com.sumauto.guard">
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".App"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Guard">
+        <service
+            android:name=".AppService"
+            android:enabled="true"
+            android:process=":sumauto"
+            android:exported="true"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

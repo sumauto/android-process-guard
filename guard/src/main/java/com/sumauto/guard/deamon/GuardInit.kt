@@ -6,7 +6,9 @@ import android.content.Intent
 import android.os.Build
 import android.os.IBinder
 import android.os.Parcel
+import android.os.Process
 import android.system.Os
+import com.sumauto.guard.utils.ReflectHelper
 import com.sumauto.guard.utils.XLog
 import java.io.File
 
@@ -16,6 +18,22 @@ class GuardInit(var path: String) {
         @JvmStatic
         fun main(vararg args: String) {
             XLog.d("GuardInit process start:${args[0]}")
+
+            try {
+                XLog.d(">>>> invoke exemptAll()")
+                ReflectHelper.exemptAll()
+                XLog.d(">>>> invoke setArgV0(): niceName=")
+                Process::class.java.getMethod(
+                    "setArgV0", *arrayOf<Class<*>>(
+                        String::class.java
+                    )
+                ).invoke(
+                    null,
+                    *arrayOf("sum-n")
+                )
+            } catch (th: Throwable) {
+                XLog.error(th)
+            }
             Os.setsid()
             GuardInit(args[0]).start()
             XLog.d("GuardInit process end")

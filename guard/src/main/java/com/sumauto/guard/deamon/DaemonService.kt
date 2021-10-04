@@ -13,7 +13,7 @@ class DaemonService:Service() {
 
     override fun onCreate() {
         super.onCreate()
-        XLog.d("DaemonService onCreate")
+        XLog.logComponentAlive(javaClass)
         ServiceHelper.bind(this, ResidentService::class.java)
         ServiceHelper.bind(this, Assist1::class.java)
         ServiceHelper.bind(this, Assist2::class.java)
