@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.sumauto.keepalive">
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <uses-permission
+        android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+
+
+    <application>
+        <service
+            android:name="com.sumauto.guard.deamon.Assist1"
+            android:exported="true"
+            android:process=":sumauto_daemon1" />
+
+        <service
+            android:name="com.sumauto.guard.deamon.Assist2"
+            android:exported="true"
+            android:process=":sumauto_daemon2" />
+
+        <service
+            android:name="com.sumauto.guard.deamon.ResidentService"
+            android:exported="true"
+            android:process=":resident" />
+
+        <service
+            android:name="com.sumauto.guard.deamon.DaemonService"
+            android:exported="true"
+            android:process=":sumauto_daemon">
+            <intent-filter>
+                <action android:name="${applicationId}.monitor.BIND_SERVICE" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
